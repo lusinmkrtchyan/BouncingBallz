@@ -1,24 +1,35 @@
 *,
 *::before,
-*::after{
+*::after {
     box-sizing: border-box;
 }
+
 * {
     margin: 0;
     padding: 0;
 }
-body{
-    margin: 0;
+
+body {
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    background-color: #f0f0f0;
 }
+
 #canvas {
     display: block;
 }
+
+#clear {
+    display: flex;
+    align-items:center; 
+    margin: 5px;
+    padding:5px;
+}
+
 .container {
     position: fixed;
     margin: 10px;
@@ -26,45 +37,71 @@ body{
     font-size: 20px;
     padding: 10px;
     border-radius: 8px;
+    gap: 3px;
 }
-.container-intro {
+
+.container-welcome {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     top: 10px;
     left: 10px;
     right: 40vh;
-}
-.container-settings {
-    top: 10px;
-    right: 10px;
+    height: 85px;
 }
 
-.settings-text{
-  
-    font-size: 30px;
-    color: rgb(60, 208, 228);
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-align: center;
+.container-themes {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    top: 110px; 
+    left: 10px;
+    right: 40vh;
+    height: 150px;
 }
+
+.container-settings {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    top: 10px;
+    right: 10px;
+    height: 250px;
+}
+
 .el {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     width: 50px;
 }
+
 .range {
     display: flex;
     justify-content: center;
 }
-.settings {
+
+.settings-elements {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    position:relative;
+    gap: 35px;
+    position: relative;
+    margin:15px;
 }
+
 .themes {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    position:relative;
-} 
+    gap: 35px;
+    margin: 10px;
+    position: relative;
+}
+
+.themes button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
 
