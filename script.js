@@ -60,7 +60,6 @@ class Circle {
         this.x += this.dx * delta;
         this.y += this.dy * delta;
 
-        // Collision with the canvas boundaries
         if (this.y + this.radius > canvas.height) {
             this.y = canvas.height - this.radius;
             this.dy = -this.dy * this.dampening;
