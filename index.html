@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity Circles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container-intro container">
+        <p>Click anywhere and the ball will appear!</p>
+    </div>
+
+    <div class="container-settings container">
+        <div class="settings-text">Settings</div>
+        <div class="settings">
+            <div class="el">
+                <label for="color">Color:</label>
+                <input type="color" id="color" name="color" value="#ff0000"><br><br>
+            </div>
+            <div class="el">
+                <label for="border">Border:</label>
+                <input type="number" id="border" name="border" value="0" min="0" max="10">
+            </div>
+        </div>
+
+        <div class="size">
+            <label for="radius">Size:</label>
+            <input type="range" id="radius" name="radius" value="20" min="5" max="100"><br><br>
+        </div>
+        <div class="material">
+            <label for="materialRange">Rubber</label>
+            <input type="range" id="materialRange" min="0" max="1" step="0.01" value="0.5">
+            <label for="materialRange">Metal</label>
+        </div>
+    </div>
+
+
+    <div class="container-themes container">
+        <div class="themes-text">Themes</div>
+        <!-- Add your theme options here -->
+    </div>
+
+    <canvas id="canvas"></canvas>
+    <script src="script.js"></script>
+</body>
+
+<!-- <body>
+
+    <div class="container-intro container">
+        <p>Click on anywhere the ball will appea! And you can change settings too! att character and stuff</p>
+        <p>You can change ball's apearance and character too in the settings!!!!</p>
+    </div>
+    <div class="container-settings container">
+        <div class="settings-text">Settings</div>
+        <div class="settings">
+            <div class="el">
+                <label for="color">Color:</label>
+                <input type="color" id="color" name="color" value="#ff0000"><br><br>
+            </div>
+            <div class="el">
+                <label for="border">Border:</label>
+                <input type="number" id="border" name="border" value="0" min="0" max="10">
+            </div>
+        </div>
+        <div class="range">
+            <div class="size">
+                <label for="radius">Size:</label>
+                <input type="range" id="radius" name="radius" value="20" min="5" max="100"><br><br>
+            </div>
+            <div class="material">
+                <label for="materialRange">Rubber</label>
+                <input type="range" id="materialRange" min="0" max="1" step="0.01" value="0.5">
+                <label for="materialRange">Metal</label>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <canvas id="canvas"></canvas>
+    <script src="script.js"></script>
+</body> -->
+
+</html>
