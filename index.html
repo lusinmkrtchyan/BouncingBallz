@@ -9,39 +9,45 @@
 </head>
 
 <body>
+    <div class="container-welcome container">
+        <h2>Welcome</h2>
+        <p>Click anywhere for balls!</p>
+    </div>
 
-    <div class="container-intro container">
-        <p>Click anywhere and the ball will appear!</p>
+    <div class="container-themes container">
+        <h2>Themes</h2>
+        <div class="themes">
+            <button id="natureTheme">Nature</button>
+            <button id="nightTheme">Night</button>
+        </div>
     </div>
 
     <div class="container-settings container">
-        <div class="settings-text">Settings</div>
-        <div class="settings">
+        <h2>Settings</h2>
+        <div class="settings-elements">
             <div class="el">
                 <label for="color">Color:</label>
-                <input type="color" id="color" name="color" value="#ff0000"><br><br>
+                <input type="color" id="color" name="color" value="#ff0000">
             </div>
             <div class="el">
                 <label for="border">Border:</label>
                 <input type="number" id="border" name="border" value="0" min="0" max="10">
             </div>
         </div>
+        <div>
+            <div class="size">
+                <label for="radius">Size:</label>
+                <input type="range" id="radius" name="radius" value="20" min="5" max="100"><br><br>
+            </div>
+            <div class="material">
+                <label for="materialRange">Light</label>
+                <input type="range" id="materialRange" min="0" max="1" step="0.01" value="0.5">
+                <label for="materialRange">Heavy</label>
+            </div>
 
-        <div class="size">
-            <label for="radius">Size:</label>
-            <input type="range" id="radius" name="radius" value="20" min="5" max="100"><br><br>
         </div>
-        <div class="material">
-            <label for="materialRange">Rubber</label>
-            <input type="range" id="materialRange" min="0" max="1" step="0.01" value="0.5">
-            <label for="materialRange">Metal</label>
-        </div>
+        <button id="clear">Clear</button>
     </div>
-
-
-<!--     <div class="container-themes container">
-        <div class="themes-text">Themes</div>
-    </div> -->
 
     <canvas id="canvas"></canvas>
     <script src="script.js"></script>
