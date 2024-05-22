@@ -6,17 +6,12 @@ canvas.height = window.innerHeight;
 
 const circles = [];
 let lastTime = 0;
+const maxBalls = 10;
 
-const rubber = { gravity: 6.8, dampening: 0.8 };
-const metal = { gravity: 13.6, dampening: 0.3 };
+const light = { gravity: 4.8, dampening: 0.95 };
+const heavy = { gravity: 17.6, dampening: 0.3 };
 
-// const obstacle = {
-//     x: canvas.width - 100,
-//     y: canvas.height - 200,
-//     width: 100,
-//     height: 200,
-//     color: '#8B0000'
-// };
+let currentTheme = 'nature';
 
 class Circle {
     constructor(x, y, radius, color, borderWidth, gravity, dampening) {
@@ -33,16 +28,15 @@ class Circle {
 
     draw() {
         const stretchFactor = 0.01;
-        const stretch = 0.1;
-
-        let stretchY = 1 + Math.min(Math.abs(this.dy) * stretchFactor, stretch);
-        let stretchX = 1 / stretchY;
+        const stretchLimit = 0.1;
+        const stretchY = 1 + Math.min(Math.abs(this.dy) * stretchFactor, stretchLimit);
+        const stretchX = 1 / stretchY;
 
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.scale(stretchX, stretchY);
         ctx.beginPath();
-        ctx.arc(0, 0, this.radius, 0, Math.PI * 2, false);
+        ctx.arc(0, 0, this.radius, 0, Math.PI * 2);
         ctx.fillStyle = this.color;
         ctx.fill();
         if (this.borderWidth > 0) {
@@ -50,9 +44,11 @@ class Circle {
             ctx.strokeStyle = '#000000';
             ctx.stroke();
         }
-        ctx.closePath();
         ctx.restore();
+
     }
+
+
 
     update(deltaTime) {
         const delta = deltaTime / 30;
@@ -90,13 +86,11 @@ class Circle {
     resolveCollision(other) {
         const xVelocityDiff = this.dx - other.dx;
         const yVelocityDiff = this.dy - other.dy;
-
         const xDist = other.x - this.x;
         const yDist = other.y - this.y;
 
         if (xVelocityDiff * xDist + yVelocityDiff * yDist >= 0) {
             const angle = -Math.atan2(other.y - this.y, other.x - this.x);
-
             const m1 = this.radius;
             const m2 = other.radius;
 
@@ -111,7 +105,6 @@ class Circle {
 
             this.dx = vFinal1.x;
             this.dy = vFinal1.y;
-
             other.dx = vFinal2.x;
             other.dy = vFinal2.y;
         }
@@ -134,28 +127,31 @@ function interpolateProperties(ratio, properties1, properties2) {
 }
 
 function spawnCircle(event) {
+    if (circles.length >= maxBalls) {
+        return;
+    }
     const x = event.clientX;
     const y = event.clientY;
     const radius = parseInt(document.getElementById('radius').value, 10);
     const color = document.getElementById('color').value;
     const borderWidth = parseInt(document.getElementById('border').value, 10);
     const materialRange = parseFloat(document.getElementById('materialRange').value);
-    const { gravity, dampening } = interpolateProperties(materialRange, rubber, metal);
+    const { gravity, dampening } = interpolateProperties(materialRange, light, heavy);
     const circle = new Circle(x, y, radius, color, borderWidth, gravity, dampening);
     circles.push(circle);
 }
 
 function drawSky() {
     const skyGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    skyGradient.addColorStop(0, '#87CEEB');
-    skyGradient.addColorStop(1, '#FFFFFF');
+    if (currentTheme === 'nature') {
+        skyGradient.addColorStop(0, '#87CEEB');
+        skyGradient.addColorStop(1, '#FFFFFF');
+    } else if (currentTheme === 'night') {
+        skyGradient.addColorStop(0, '#000000');
+        skyGradient.addColorStop(1, '#8A2BE2');
+    }
     ctx.fillStyle = skyGradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-}
-
-function drawObstacle(x, y, width, height, color) {
-    ctx.fillStyle = color;
-    ctx.fillRect(x, y, width, height);
 }
 
 function tick(currentTime) {
@@ -166,18 +162,30 @@ function tick(currentTime) {
 
     drawSky();
 
-    for (let i = 0; i < circles.length; i++) {
-        const circle = circles[i];
+    circles.forEach((circle, i) => {
         circle.update(deltaTime);
         for (let j = i + 1; j < circles.length; j++) {
-            const otherCircle = circles[j];
-            if (circle.checkCollision(otherCircle)) {
-                circle.resolveCollision(otherCircle);
+            if (circle.checkCollision(circles[j])) {
+                circle.resolveCollision(circles[j]);
             }
         }
-    }
+    });
+
     requestAnimationFrame(tick);
 }
 
+document.getElementById('clear').addEventListener('click', () => {
+    circles.length = 0
+})
+
+document.getElementById('natureTheme').addEventListener('click', () => {
+    currentTheme = 'nature';
+});
+
+document.getElementById('nightTheme').addEventListener('click', () => {
+    currentTheme = 'night';
+});
+
 canvas.addEventListener('click', spawnCircle);
 requestAnimationFrame(tick);
+
