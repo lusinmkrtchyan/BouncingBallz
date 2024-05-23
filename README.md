@@ -1,4 +1,4 @@
-# ~Bouncing Balls~
+# ~ Bouncing Balls ~
 
 ## About
 This is a simple web application to create with gravity-affected ball, users can click to spawn balls that are affected by gravity and collide with each other. There are also settings where you can change you next ball's apearance, you can change ball's color, borrder width, size, and heaviness and also there are 2 themes: Day and Night!
