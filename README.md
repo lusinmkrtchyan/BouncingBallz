@@ -32,7 +32,7 @@ Navigate to Project Directory:
 ```
 cd BouncingBallz
 ```
-Open in Browser: Open the index.html file in your web browser.
+Open in Browser: Open the index.html file in your web browser.\
 Start clicking ~
 
 
