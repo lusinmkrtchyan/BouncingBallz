@@ -28,6 +28,12 @@ Clone the repository:
 ```
    git clone https://github.com/lusinmkrtchyan/BouncingBallz.git
  ```
+Navigate to Project Directory: 
+```
+cd BouncingBallz
+```
+Open in Browser: Open the index.html file in your web browser.
+Start clicking ~
 
 
 
