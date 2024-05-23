@@ -23,53 +23,33 @@ body {
     display: block;
 }
 
-#clear {
-    display: flex;
-    align-items:center; 
-    margin: 5px;
-    padding:5px;
-}
-
 .container {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     margin: 10px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.347);
     font-size: 20px;
     padding: 10px;
     border-radius: 8px;
-    gap: 3px;
+    padding: 20px;
+    box-shadow: 0 4px 15px 0 rgba(30, 94, 92, 0.216);
 }
 
 .container-welcome {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
     align-items: center;
     top: 10px;
     left: 10px;
-    right: 40vh;
-    height: 85px;
-}
-
-.container-themes {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    top: 110px; 
-    left: 10px;
-    right: 40vh;
-    height: 150px;
 }
 
 .container-settings {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
     top: 10px;
     right: 10px;
-    height: 250px;
+    box-shadow: 0 4px 15px 0 rgba(30, 94, 92, 0.301);
 }
 
 .el {
@@ -80,7 +60,10 @@ body {
 
 .range {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    gap: 10px;
+    margin: 15px;
 }
 
 .settings-elements {
@@ -88,20 +71,59 @@ body {
     justify-content: center;
     gap: 35px;
     position: relative;
-    margin:15px;
+    margin: 15px;
 }
 
 .themes {
     display: flex;
     justify-content: center;
-    gap: 35px;
-    margin: 10px;
-    position: relative;
+    margin: 5px;
 }
 
 .themes button {
-    padding: 10px;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
 }
 
+.btn-hover {
+    width: 150px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-night {
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+
+.btn-hover.color-nature {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+.btn-hover.color-clear {
+    background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+    box-shadow: 0 4px 15px 0 rgba(252, 104, 109, 0.137);
+}
+
+.color-clear {
+    margin: 20px;
+}
