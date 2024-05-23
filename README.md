@@ -39,9 +39,9 @@ cd BouncingBallz
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
 - Fork the repository (Create a new branch):
- ```
- git checkout -b feature/improvement
- ```
+```
+git checkout -b feature/improvement
+```
 - Make your changes (Commit your changes):
 ```
 git commit -am 'Add some feature'
