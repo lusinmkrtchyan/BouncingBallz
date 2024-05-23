@@ -16,23 +16,6 @@ This project uses HTML, CSS, and JavaScript to create an interactive canvas.
 - Two themes: Day (Nature) and Night.
 - Clear all balls with a single button.
 
-## Setup and Execution
-
-### Prerequisites
-
-- A web browser (Chrome, Firefox, Safari, etc.)
-- Git (optional, for cloning the repository)
-
-### Getting Started
-
-**Clone the repository**:
-
-   git clone https://github.com/lusinmkrtchyan/BouncingBallz.git
-   cd BouncingBallz
-
-### Editing the Template 🔨
-
-Go to `index.html` and fill your information. 
 
 
 ### Usage
