@@ -35,5 +35,20 @@ cd BouncingBallz
 - Open in Browser: Open the index.html file in your web browser.\
 - Start clicking ~
 
+## Contributing
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
+- Fork the repository (Create a new branch):
+ ```
+ git checkout -b feature/improvement
+ ```
+- Make your changes (Commit your changes):
+```
+git commit -am 'Add some feature'
+```
+- Push to the branch: 
+```
+git push origin feature/improvement
+```
+- Create a new Pull Request.
 
