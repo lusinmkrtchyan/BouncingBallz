@@ -188,4 +188,3 @@ document.getElementById('nightTheme').addEventListener('click', () => {
 
 canvas.addEventListener('click', spawnCircle);
 requestAnimationFrame(tick);
-
